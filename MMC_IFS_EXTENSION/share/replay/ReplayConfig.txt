@@ -1,0 +1,29 @@
+// Replay Configuration file for Windows
+// should be placed in windows executable directory
+// with Replay Manager
+replayEnabled:1; 
+replayEnabledCookie:/fs/etfs/REPLAY_ENABLED;  // file must be present or no Replay! 
+outputFilePath:/fs/etfs/Replay/Output;        // place to put validation output
+replayFileLocation:/fs/etfs/Replay;        // place to read replay files from when replaying
+homePageLocation:index.html;              // index.html location
+serverIP:127.0.0.1;                       // Default to Local Server
+reconnectInterval:500;                    // time to wait before attempt re-connect to server, 
+externalConnectWait:20;                   // Wait 20 seconds before trying to connect to remote server
+networkingLatency:100;                    // "networking Latency" in MS;
+                                          // really time for ndr CinCh5::runloop
+                                          // to process message from Ch5ReplayIntf
+                                          // (threading delay)
+useTraceClient:1;                         // if 0, log everything to "q"
+serverLeadTime:100;                       // Server should send messages
+                                          // 100 ms before needed (?)
+//File Logging levels:
+//  0 : Lethal Errors Only
+//  1 : All Errors
+//  2 : Errors and Warnings
+//  3 : Errors, Warnings and Info
+//  4 : Errors, Warnings, Info and Debug
+//  5 : Everything, stuff marked as "verbose" in code will be logged
+//      to LogFile.txt ONLY.
+HTTPDebugLevel:3;         // log info, Warning and Error
+serverUDPDebugLevel:3;    // log info, Warning and Error
+clientUDPDebugLevel:3;    // log info, Warning and Error

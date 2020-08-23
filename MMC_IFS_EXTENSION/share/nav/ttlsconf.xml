@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- configuration of the TomTom Live service  -->
+<!-- enable the below configuration item(s) if needed -->
+<configure>
+   <EnableProxy>1</EnableProxy>
+   <Proxy>127.0.0.1:3128</Proxy>
+   <!-- <User>username:password</User> -->
+   <EnableDebug>1</EnableDebug>
+   <!-- <SessionToken>theToken</SessionToken> -->
+   <InitSessionURL>http://fiat-ams.services.tomtom.com/srvc/tt/tpeg/InitSession</InitSessionURL>
+   <SpeedcamFeedbackURL>http://fiat-ams.services.tomtom.com/srvc/tt/saafl/gateway/input/api-2.0/publicUserReports-1.4/sendReports</SpeedcamFeedbackURL>
+   <LocalSearchSearchURL>http://fiat-ams.services.tomtom.com/srvc/tt/ls/places/search/1/place?</LocalSearchSearchURL>
+   <LocalSearchSourceURL>http://fiat-ams.services.tomtom.com/srvc/tt/ls/places/sources/1/</LocalSearchSourceURL>
+   <LocalSearchLogURL>http://fiat-ams.services.tomtom.com/srvc/tt/ls/places/log/1/</LocalSearchLogURL>
+   
+   <!-- Configure the traffic event count and its radius -->
+   <!-- Incidents in the TrafficInnerRadius region are considered to be most important -->
+   <!-- Incidents between TrafficInnerRadius and TrafficOuterRadius are considered to be important -->
+   <!-- and the TomTom Traffic Service may select relevant incidents to be sent -->
+   <!-- All incidents outside TrafficOuterRadius are not taken into account and are not reported to the device -->
+   <TrafficEventCount>500</TrafficEventCount>
+   <TrafficInnerRadius>50000</TrafficInnerRadius>
+   <TrafficOuterRadius>100000</TrafficOuterRadius>
+
+   <!-- Configure the Speedcamera event count and its radius -->
+   <!-- <SpeedcamCount>50</SpeedcamCount> -->
+   <!-- <SpeedcamRadius>4000</SpeedcamRadius> -->
+   <!-- <SpeedcamRefreshInterval>120000</SpeedcamRefreshInterval> -->
+   <!-- <WeatherCount>50</WeatherCount> -->
+
+   <!-- The application information used in speed camera report  -->
+   <!-- <ApplicationVendor>NNG</ApplicationVendor> -->
+   <!-- <ApplicationName>iGO-FGA</ApplicationName> -->
+   <!-- <ApplicationVersion>1.0.0</ApplicationVersion> -->
+   
+   <!-- ReporterID used in speed camera report  -->
+   <!-- <Reporter>95811c7b-4181-4889-8754-f0f6907bf9dc</Reporter> -->
+
+   <!-- The Map Information used in speed camera report -->
+   <!-- <MapVendor>TomTom</MapVendor> -->
+   <!-- <MapName>Europe</MapName> -->
+   <!-- <MapVersion>2013.12</MapVersion> -->
+   
+   <!-- The local search API key -->
+   <!-- <LocalSearchAPIKey>jjed57sdb8am464hrz8ynack</LocalSearchAPIKey> -->
+
+   <!-- The options which service's tpeg stream will be saved to file -->
+   <!-- <SaveTpegDataToFileFlag>0</SaveTpegDataToFileFlag> -->
+   
+   <!-- If EnableGZip is true, we are expecting ENCODING TYPE is gzip. -->
+   <!-- In case EnableGZip and AlwayGZipCompresse are true, we arbitorily treat all streams are gzip compressed -->
+   <!-- We don't check the http header encodingtype to do verify. If it's false, we'll check http header to do verify -->
+   <!-- EnableGZip default is true and AlwayGZipCompressed is false -->
+   <!--<EnableGZip>1</EnableGZip>-->
+   <!--<AlwayGZipCompressed>1</AlwayGZipCompressed>-->
+
+   <!-- Try count on InitSession failure -->
+   <MaxTryInitSessionCount>10</MaxTryInitSessionCount>
+   
+   <!-- Whether try to do InitSession On Unauthorized Error and MaxUnauthorizedErrorCount will be ignore -->
+   <TryInitSessionOnUnauthorizedError>1</TryInitSessionOnUnauthorizedError>
+   <MaxTryInitSessionCountOnUnauthorizedError>10</MaxTryInitSessionCountOnUnauthorizedError>
+
+   <!-- The maximum unauthorized error count we can bear. If it exceeds, we think it's really an unauthrozied error and won't try to recover -->
+   <!-- <MaxUnauthorizedErrorCount>3</MaxUnauthorizedErrorCount> -->
+
+   <!-- Flag enable the NavServer speedcam by calling: requestMAPControls("<MID>map<*><MSC>1<*>") and requestSetSafetyCameraMode((safetyWarningMode:1) -->
+   <!-- 0 Don't. 1: enable, (1+2): enable and disable when turnoff -->
+   <EnableNavServerSpeedCam>1</EnableNavServerSpeedCam>
+
+   <!-- Flag whether we Export OpenLR in KML(0/1) -->
+   <KmlExportOpenLR>1</KmlExportOpenLR>
+
+   <!-- Flag whether we print SAA event in traceclient(0/1) -->
+   <PrintSAAEventLog>1</PrintSAAEventLog>
+</configure>

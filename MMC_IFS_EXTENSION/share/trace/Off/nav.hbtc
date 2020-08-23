@@ -1,0 +1,13 @@
+HBTracePersistence 1.1.0
+[ChryslerOpenNavController]
+* 22 01
+project_nav_opennav_COpenNavController 22 01
+project_nav_opennav_common 22 01
+project_nav_opennav_plugins_ClusterImpl 22 01
+project_nav_opennav_plugins_PDBusJSON 22 01
+project_nav_opennav_providers 22 01
+project_nav_opennav_pserver 22 01
+project_nav_opennav_server 22 01
+[DBusTraceMonitor]
+* 22 01
+

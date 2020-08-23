@@ -1,0 +1,26 @@
+HBTracePersistence 1.1.0
+[ChryslerOpenNavController]
+* 22 01
+project_nav_opennav_COpenNavController 62 01
+project_nav_opennav_common 62 01
+project_nav_opennav_plugins_ClusterImpl 62 01
+project_nav_opennav_plugins_PJSON 62 01
+project_nav_opennav_providers 62 01
+project_nav_opennav_pserver 62 01
+project_nav_opennav_server 62 01
+[FiatOpenNavController]
+* 00 01
+nav ff 01
+opennav ff 01
+project_nav_opennav_COpenNavController ff 01
+project_nav_opennav_common ff 01
+project_nav_opennav_plugins_CFiatVehiclePlatform ff 01
+project_nav_opennav_plugins_CUConnectStatusClient ff 01
+project_nav_opennav_plugins_PJSON ff 01
+project_nav_opennav_plugins_TomTomLive ff 01
+project_nav_opennav_providers ff 01
+project_nav_opennav_pserver ff 01
+project_nav_opennav_server ff 01
+[DBusTraceMonitor]
+* 62 01
+

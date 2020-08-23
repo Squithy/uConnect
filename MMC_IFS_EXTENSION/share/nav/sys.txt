@@ -1,0 +1,22 @@
+[device]
+type="opennav_fiat_330_eu"
+ 
+[opennav]
+;default is 10
+ndr_corr_max_mapmatch_dist_m=60
+process_field_option=1
+
+[rawdisplay]
+vram_size = 10000000
+
+[sound]
+announce_restricted_roads=1
+
+[navigation.extrapolate]
+speed_threshold=32 
+
+[tmc] 
+only_flow_stripes=1
+
+[globe]
+num_of_stars=0

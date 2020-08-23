@@ -1,0 +1,1717 @@
+# SimpleHandsfree Configuration File
+#
+#
+# configuration used for hands-free with FiatChrysler CMC
+#
+# audio scenario name contains vehicle id 
+
+# ####################################################################################################
+# Base scenarios
+# ####################################################################################################
+
+[BASE_2MIC_BT_NB_LHD]
+
+<Device = Nuance_Mic#pcmC0D0c>
+DeviceType             = Capture
+NumberChannels         = 2
+SampleRate             = 8000
+SamplesPerChannel      = 128
+PhysicalChannelMapping = PhysicalChannel1,PhysicalChannel2
+StreamName             = MicrophoneInput1,MicrophoneInput2
+NumberGeneratedZeroBlocksAvailableAtStartup = 0
+NumberWrittenZerosBlocksAtStartup  = 0
+MaxNumberBlocksQueueing            = 30
+QueueingBlocksErrorWatermark       = 5
+AudioPlatformSpecificConfiguration = 0x0
+
+<Device = Nuance_BT_DnLnk#pcmC1D0c>
+DeviceType             = Capture
+NumberChannels         = 1
+SampleRate             = 8000
+SamplesPerChannel      = 128
+PhysicalChannelMapping = PhysicalChannel1
+StreamName             = ReceiveInput1
+NumberGeneratedZeroBlocksAvailableAtStartup = 0
+NumberWrittenZerosBlocksAtStartup  = 0
+MaxNumberBlocksQueueing            = 30
+QueueingBlocksErrorWatermark       = 5
+AudioPlatformSpecificConfiguration = 0x0
+
+<Device = Nuance_BT_UpLnk#pcmC1D0p>
+DeviceType             = Playback
+NumberChannels         = 1
+SampleRate             = 8000
+SamplesPerChannel      = 128
+PhysicalChannelMapping = PhysicalChannel1
+StreamName             = MicrophoneOutput1 
+NumberGeneratedZeroBlocksAvailableAtStartup = 5
+NumberWrittenZerosBlocksAtStartup  = 2
+MaxNumberBlocksQueueing            = 30
+QueueingBlocksErrorWatermark       = 5
+AudioPlatformSpecificConfiguration = 0x1
+
+<Device = Nuance_BT_Spkr#pcmC0D1p>
+DeviceType             = Playback
+NumberChannels         = 1
+SampleRate             = 8000
+SamplesPerChannel      = 128
+PhysicalChannelMapping = PhysicalChannel1
+StreamName             = ReceiveOutput1
+NumberGeneratedZeroBlocksAvailableAtStartup = 5
+NumberWrittenZerosBlocksAtStartup  = 2
+MaxNumberBlocksQueueing            = 30
+QueueingBlocksErrorWatermark       = 5
+AudioPlatformSpecificConfiguration = 0x8
+
+<SSE>
+SampleRate    = 8000
+FrameShift    = 128
+
+[BASE_2MIC_BT_NB_RHD]
+
+<Device = Nuance_Mic#pcmC0D0c>
+DeviceType             = Capture
+NumberChannels         = 2
+SampleRate             = 8000
+SamplesPerChannel      = 128
+PhysicalChannelMapping = PhysicalChannel1,PhysicalChannel2
+StreamName             = MicrophoneInput2,MicrophoneInput1
+NumberGeneratedZeroBlocksAvailableAtStartup = 0
+NumberWrittenZerosBlocksAtStartup  = 0
+MaxNumberBlocksQueueing            = 30
+QueueingBlocksErrorWatermark       = 5
+AudioPlatformSpecificConfiguration = 0x0
+
+<Device = Nuance_BT_DnLnk#pcmC1D0c>
+DeviceType             = Capture
+NumberChannels         = 1
+SampleRate             = 8000
+SamplesPerChannel      = 128
+PhysicalChannelMapping = PhysicalChannel1
+StreamName             = ReceiveInput1
+NumberGeneratedZeroBlocksAvailableAtStartup = 0
+NumberWrittenZerosBlocksAtStartup  = 0
+MaxNumberBlocksQueueing            = 30
+QueueingBlocksErrorWatermark       = 5
+AudioPlatformSpecificConfiguration = 0x0
+
+<Device = Nuance_BT_UpLnk#pcmC1D0p>
+DeviceType             = Playback
+NumberChannels         = 1
+SampleRate             = 8000
+SamplesPerChannel      = 128
+PhysicalChannelMapping = PhysicalChannel1
+StreamName             = MicrophoneOutput1 
+NumberGeneratedZeroBlocksAvailableAtStartup = 5
+NumberWrittenZerosBlocksAtStartup  = 2
+MaxNumberBlocksQueueing            = 30
+QueueingBlocksErrorWatermark       = 5
+AudioPlatformSpecificConfiguration = 0x1
+
+<Device = Nuance_BT_Spkr#pcmC0D1p>
+DeviceType             = Playback
+NumberChannels         = 1
+SampleRate             = 8000
+SamplesPerChannel      = 128
+PhysicalChannelMapping = PhysicalChannel1
+StreamName             = ReceiveOutput1
+NumberGeneratedZeroBlocksAvailableAtStartup = 5
+NumberWrittenZerosBlocksAtStartup  = 2
+MaxNumberBlocksQueueing            = 30
+QueueingBlocksErrorWatermark       = 5
+AudioPlatformSpecificConfiguration = 0x8
+
+<SSE>
+SampleRate    = 8000
+FrameShift    = 128
+
+[BASE_1MIC_BT_NB]
+
+<Device = Nuance_Mic#pcmC0D0c>
+DeviceType             = Capture
+NumberChannels         = 1
+SampleRate             = 8000
+SamplesPerChannel      = 128
+PhysicalChannelMapping = PhysicalChannel1
+StreamName             = MicrophoneInput1
+NumberGeneratedZeroBlocksAvailableAtStartup = 0
+NumberWrittenZerosBlocksAtStartup  = 0
+MaxNumberBlocksQueueing            = 30
+QueueingBlocksErrorWatermark       = 5
+AudioPlatformSpecificConfiguration = 0x0
+
+<Device = Nuance_BT_DnLnk#pcmC1D0c>
+DeviceType             = Capture
+NumberChannels         = 1
+SampleRate             = 8000
+SamplesPerChannel      = 128
+PhysicalChannelMapping = PhysicalChannel1
+StreamName             = ReceiveInput1
+NumberGeneratedZeroBlocksAvailableAtStartup = 0
+NumberWrittenZerosBlocksAtStartup  = 0
+MaxNumberBlocksQueueing            = 30
+QueueingBlocksErrorWatermark       = 5
+AudioPlatformSpecificConfiguration = 0x0
+
+<Device = Nuance_BT_UpLnk#pcmC1D0p>
+DeviceType             = Playback
+NumberChannels         = 1
+SampleRate             = 8000
+SamplesPerChannel      = 128
+PhysicalChannelMapping = PhysicalChannel1
+StreamName             = MicrophoneOutput1 
+NumberGeneratedZeroBlocksAvailableAtStartup = 5
+NumberWrittenZerosBlocksAtStartup  = 2
+MaxNumberBlocksQueueing            = 30
+QueueingBlocksErrorWatermark       = 5
+AudioPlatformSpecificConfiguration = 0x1
+
+<Device = Nuance_BT_Spkr#pcmC0D1p>
+DeviceType             = Playback
+NumberChannels         = 1
+SampleRate             = 8000
+SamplesPerChannel      = 128
+PhysicalChannelMapping = PhysicalChannel1
+StreamName             = ReceiveOutput1
+NumberGeneratedZeroBlocksAvailableAtStartup = 5
+NumberWrittenZerosBlocksAtStartup  = 2
+MaxNumberBlocksQueueing            = 30
+QueueingBlocksErrorWatermark       = 5
+AudioPlatformSpecificConfiguration = 0x8
+
+<SSE>
+SampleRate    = 8000
+FrameShift    = 128
+
+[BASE_EMB_2MIC_BT_NB_LHD]
+
+<Device = Nuance_Mic#pcmC0D0c>
+DeviceType             = Capture
+NumberChannels         = 2
+SampleRate             = 8000
+SamplesPerChannel      = 128
+PhysicalChannelMapping = PhysicalChannel1,PhysicalChannel2
+StreamName             = MicrophoneInput1,MicrophoneInput2
+NumberGeneratedZeroBlocksAvailableAtStartup = 0
+NumberWrittenZerosBlocksAtStartup  = 0
+MaxNumberBlocksQueueing            = 30
+QueueingBlocksErrorWatermark       = 5
+AudioPlatformSpecificConfiguration = 0x0
+
+<Device = Nuance_BT_DnLnk#pcmC2D0c>
+DeviceType             = Capture
+NumberChannels         = 1
+SampleRate             = 8000
+SamplesPerChannel      = 128
+PhysicalChannelMapping = PhysicalChannel1
+StreamName             = ReceiveInput1
+NumberGeneratedZeroBlocksAvailableAtStartup = 0
+NumberWrittenZerosBlocksAtStartup  = 0
+MaxNumberBlocksQueueing            = 30
+QueueingBlocksErrorWatermark       = 5
+AudioPlatformSpecificConfiguration = 0x0
+
+<Device = Nuance_BT_UpLnk#pcmC2D0p>
+DeviceType             = Playback
+NumberChannels         = 1
+SampleRate             = 8000
+SamplesPerChannel      = 128
+PhysicalChannelMapping = PhysicalChannel1
+StreamName             = MicrophoneOutput1 
+NumberGeneratedZeroBlocksAvailableAtStartup = 5
+NumberWrittenZerosBlocksAtStartup  = 2
+MaxNumberBlocksQueueing            = 30
+QueueingBlocksErrorWatermark       = 5
+AudioPlatformSpecificConfiguration = 0x1
+
+<Device = Nuance_BT_Spkr#pcmC0D1p>
+DeviceType             = Playback
+NumberChannels         = 1
+SampleRate             = 8000
+SamplesPerChannel      = 128
+PhysicalChannelMapping = PhysicalChannel1
+StreamName             = ReceiveOutput1
+NumberGeneratedZeroBlocksAvailableAtStartup = 5
+NumberWrittenZerosBlocksAtStartup  = 2
+MaxNumberBlocksQueueing            = 30
+QueueingBlocksErrorWatermark       = 5
+AudioPlatformSpecificConfiguration = 0x8
+
+<SSE>
+SampleRate    = 8000
+FrameShift    = 128
+
+[BASE_EMB_2MIC_BT_NB_RHD]
+
+<Device = Nuance_Mic#pcmC0D0c>
+DeviceType             = Capture
+NumberChannels         = 2
+SampleRate             = 8000
+SamplesPerChannel      = 128
+PhysicalChannelMapping = PhysicalChannel1,PhysicalChannel2
+StreamName             = MicrophoneInput2,MicrophoneInput1
+NumberGeneratedZeroBlocksAvailableAtStartup = 0
+NumberWrittenZerosBlocksAtStartup  = 0
+MaxNumberBlocksQueueing            = 30
+QueueingBlocksErrorWatermark       = 5
+AudioPlatformSpecificConfiguration = 0x0
+
+<Device = Nuance_BT_DnLnk#pcmC2D0c>
+DeviceType             = Capture
+NumberChannels         = 1
+SampleRate             = 8000
+SamplesPerChannel      = 128
+PhysicalChannelMapping = PhysicalChannel1
+StreamName             = ReceiveInput1
+NumberGeneratedZeroBlocksAvailableAtStartup = 0
+NumberWrittenZerosBlocksAtStartup  = 0
+MaxNumberBlocksQueueing            = 30
+QueueingBlocksErrorWatermark       = 5
+AudioPlatformSpecificConfiguration = 0x0
+
+<Device = Nuance_BT_UpLnk#pcmC2D0p>
+DeviceType             = Playback
+NumberChannels         = 1
+SampleRate             = 8000
+SamplesPerChannel      = 128
+PhysicalChannelMapping = PhysicalChannel1
+StreamName             = MicrophoneOutput1 
+NumberGeneratedZeroBlocksAvailableAtStartup = 5
+NumberWrittenZerosBlocksAtStartup  = 2
+MaxNumberBlocksQueueing            = 30
+QueueingBlocksErrorWatermark       = 5
+AudioPlatformSpecificConfiguration = 0x1
+
+<Device = Nuance_BT_Spkr#pcmC0D1p>
+DeviceType             = Playback
+NumberChannels         = 1
+SampleRate             = 8000
+SamplesPerChannel      = 128
+PhysicalChannelMapping = PhysicalChannel1
+StreamName             = ReceiveOutput1
+NumberGeneratedZeroBlocksAvailableAtStartup = 5
+NumberWrittenZerosBlocksAtStartup  = 2
+MaxNumberBlocksQueueing            = 30
+QueueingBlocksErrorWatermark       = 5
+AudioPlatformSpecificConfiguration = 0x8
+
+<SSE>
+SampleRate    = 8000
+FrameShift    = 128
+
+[BASE_EMB_1MIC_BT_NB]
+
+<Device = Nuance_Mic#pcmC0D0c>
+DeviceType             = Capture
+NumberChannels         = 1
+SampleRate             = 8000
+SamplesPerChannel      = 128
+PhysicalChannelMapping = PhysicalChannel1
+StreamName             = MicrophoneInput1
+NumberGeneratedZeroBlocksAvailableAtStartup = 0
+NumberWrittenZerosBlocksAtStartup  = 0
+MaxNumberBlocksQueueing            = 30
+QueueingBlocksErrorWatermark       = 5
+AudioPlatformSpecificConfiguration = 0x0
+
+<Device = Nuance_BT_DnLnk#pcmC2D0c>
+DeviceType             = Capture
+NumberChannels         = 1
+SampleRate             = 8000
+SamplesPerChannel      = 128
+PhysicalChannelMapping = PhysicalChannel1
+StreamName             = ReceiveInput1
+NumberGeneratedZeroBlocksAvailableAtStartup = 0
+NumberWrittenZerosBlocksAtStartup  = 0
+MaxNumberBlocksQueueing            = 30
+QueueingBlocksErrorWatermark       = 5
+AudioPlatformSpecificConfiguration = 0x0
+
+<Device = Nuance_BT_UpLnk#pcmC2D0p>
+DeviceType             = Playback
+NumberChannels         = 1
+SampleRate             = 8000
+SamplesPerChannel      = 128
+PhysicalChannelMapping = PhysicalChannel1
+StreamName             = MicrophoneOutput1 
+NumberGeneratedZeroBlocksAvailableAtStartup = 5
+NumberWrittenZerosBlocksAtStartup  = 2
+MaxNumberBlocksQueueing            = 30
+QueueingBlocksErrorWatermark       = 5
+AudioPlatformSpecificConfiguration = 0x1
+
+<Device = Nuance_BT_Spkr#pcmC0D1p>
+DeviceType             = Playback
+NumberChannels         = 1
+SampleRate             = 8000
+SamplesPerChannel      = 128
+PhysicalChannelMapping = PhysicalChannel1
+StreamName             = ReceiveOutput1
+NumberGeneratedZeroBlocksAvailableAtStartup = 5
+NumberWrittenZerosBlocksAtStartup  = 2
+MaxNumberBlocksQueueing            = 30
+QueueingBlocksErrorWatermark       = 5
+AudioPlatformSpecificConfiguration = 0x8
+
+<SSE>
+SampleRate    = 8000
+FrameShift    = 128
+
+# ####################################################################################################
+# Left-Hand-Drive
+# ####################################################################################################
+
+# ***********************************
+[Handsfree_NONE_LHD:BASE_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# *********************************** This is a 2-Mic Chysler vehicle
+[Handsfree_Fiat551_LHD:BASE_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# *********************************** This is a 2-Mic Chysler vehicle
+[Handsfree_Fiat552_LHD:BASE_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# *********************************** This is a 2-Mic Chysler vehicle
+[Handsfree_Fiat553_LHD:BASE_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Handsfree_WK_LHD:BASE_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_WK.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[Handsfree_LX_LHD:BASE_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_LX.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[Handsfree_JC_LHD:BASE_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_JC.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Handsfree_DS_LHD:BASE_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_DS.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[Handsfree_D2_LHD:BASE_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Handsfree_DD_LHD:BASE_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Handsfree_DP_LHD:BASE_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Handsfree_DJ_LHD:BASE_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Handsfree_WD_LHD:BASE_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_WD.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[Handsfree_DX_LHD:BASE_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_DX.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Handsfree_LD_LHD:BASE_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_LD.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[Handsfree_M156_LHD:BASE_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Handsfree_ZD_LHD:BASE_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_ZD.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[Handsfree_LA_LHD:BASE_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_LA.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[Handsfree_RU_LHD:BASE_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Handsfree_WM_LHD:BASE_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Handsfree_WS_LHD:BASE_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+# ***********************************
+[Handsfree_M157_LHD:BASE_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Handsfree_PF_LHD:BASE_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Handsfree_KL_LHD:BASE_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_KL.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[Handsfree_UF_LHD:BASE_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_UF.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[Handsfree_UT_LHD:BASE_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# **********  1-microphone config (Fiat) *************************
+[Handsfree_Fiat520_LHD:BASE_1MIC_BT_NB]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Fiat520.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# **********  1-microphone config (Fiat) *************************
+[Handsfree_Fiat523_LHD:BASE_1MIC_BT_NB]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Fiat523.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# **********  1-microphone config (Fiat) *************************
+[Handsfree_Fiat940_LHD:BASE_1MIC_BT_NB]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Fiat940.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# **********  1-microphone config (Fiat) *************************
+[Handsfree_Fiat330_LHD:BASE_1MIC_BT_NB]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Fiat330.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# **********  1-microphone config (Fiat) *************************
+[Handsfree_Fiat334_LHD:BASE_1MIC_BT_NB]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Fiat334.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[Handsfree_SNA_LHD:BASE_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ####################################################################################################
+# Right-Hand-Drive
+# ####################################################################################################
+
+# ***********************************
+[Handsfree_NONE_RHD:BASE_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# *********************************** This is a 2-Mic Chysler vehicle
+[Handsfree_Fiat551_RHD:BASE_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# *********************************** This is a 2-Mic Chysler vehicle
+[Handsfree_Fiat552_RHD:BASE_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# *********************************** This is a 2-Mic Chysler vehicle
+[Handsfree_Fiat553_RHD:BASE_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Handsfree_WK_RHD:BASE_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_WK.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[Handsfree_LX_RHD:BASE_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_LX.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[Handsfree_JC_RHD:BASE_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_JC.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Handsfree_DS_RHD:BASE_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_DS.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[Handsfree_D2_RHD:BASE_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Handsfree_DD_RHD:BASE_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Handsfree_DP_RHD:BASE_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Handsfree_DJ_RHD:BASE_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Handsfree_WD_RHD:BASE_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_WD.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[Handsfree_DX_RHD:BASE_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_DX.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Handsfree_LD_RHD:BASE_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_LD.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[Handsfree_M156_RHD:BASE_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Handsfree_ZD_RHD:BASE_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_ZD.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[Handsfree_LA_RHD:BASE_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_LA.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[Handsfree_RU_RHD:BASE_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Handsfree_WM_RHD:BASE_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Handsfree_WS_RHD:BASE_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+# ***********************************
+[Handsfree_M157_RHD:BASE_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Handsfree_PF_RHD:BASE_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Handsfree_KL_RHD:BASE_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_KL.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[Handsfree_UF_RHD:BASE_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_UF.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[Handsfree_UT_RHD:BASE_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ************  1-microphone configuration (Fiat) ***********************
+[Handsfree_Fiat520_RHD:BASE_1MIC_BT_NB]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Fiat520.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ************  1-microphone configuration (Fiat) ***********************
+[Handsfree_Fiat523_RHD:BASE_1MIC_BT_NB]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Fiat523.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ************  1-microphone configuration (Fiat) ***********************
+[Handsfree_Fiat940_RHD:BASE_1MIC_BT_NB]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Fiat940.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ************  1-microphone configuration (Fiat) ***********************
+[Handsfree_Fiat330_RHD:BASE_1MIC_BT_NB]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Fiat330.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ************  1-microphone configuration (Fiat) ***********************
+[Handsfree_Fiat334_RHD:BASE_1MIC_BT_NB]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Fiat334.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[Handsfree_SNA_RHD:BASE_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# #######################################################
+#
+# Configuration for the embedded phone audio.  
+# Note it uses the same BSD file as the BT since both the BT and embedded
+# use the same Mic1, Mic2, and main audio reference and they are
+# both at the same sample rate of 8kHz
+# 
+# #######################################################
+
+# ####################################################################################################
+# Left-Hand-Drive
+# ####################################################################################################
+
+# ***********************************
+[Embedded_NONE_LHD:BASE_EMB_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# *********************************** This is a 2-Mic Chysler vehicle
+[Embedded_Fiat551_LHD:BASE_EMB_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# *********************************** This is a 2-Mic Chysler vehicle
+[Embedded_Fiat552_LHD:BASE_EMB_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# *********************************** This is a 2-Mic Chysler vehicle
+[Embedded_Fiat553_LHD:BASE_EMB_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Embedded_WK_LHD:BASE_EMB_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_WK.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[Embedded_LX_LHD:BASE_EMB_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_LX.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[Embedded_JC_LHD:BASE_EMB_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_JC.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Embedded_DS_LHD:BASE_EMB_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_DS.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[Embedded_D2_LHD:BASE_EMB_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Embedded_DD_LHD:BASE_EMB_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Embedded_DP_LHD:BASE_EMB_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Embedded_DJ_LHD:BASE_EMB_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Embedded_WD_LHD:BASE_EMB_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_WD.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[Embedded_DX_LHD:BASE_EMB_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_DX.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Embedded_LD_LHD:BASE_EMB_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_LD.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[Embedded_M156_LHD:BASE_EMB_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Embedded_ZD_LHD:BASE_EMB_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_ZD.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[Embedded_LA_LHD:BASE_EMB_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_LA.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[Embedded_RU_LHD:BASE_EMB_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Embedded_WM_LHD:BASE_EMB_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Embedded_WS_LHD:BASE_EMB_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Embedded_M157_LHD:BASE_EMB_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Embedded_PF_LHD:BASE_EMB_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Embedded_KL_LHD:BASE_EMB_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_KL.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[Embedded_UF_LHD:BASE_EMB_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_UF.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[Embedded_UT_LHD:BASE_EMB_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# **********  1-microphone config (Fiat) *************************
+[Embedded_Fiat520_LHD:BASE_EMB_1MIC_BT_NB]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Fiat520.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# **********  1-microphone config (Fiat) *************************
+[Embedded_Fiat523_LHD:BASE_EMB_1MIC_BT_NB]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Fiat523.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+# **********  1-microphone config (Fiat) *************************
+[Embedded_Fiat940_LHD:BASE_EMB_1MIC_BT_NB]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Fiat940.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# **********  1-microphone config (Fiat) *************************
+[Embedded_Fiat330_LHD:BASE_EMB_1MIC_BT_NB]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Fiat330.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# **********  1-microphone config (Fiat) *************************
+[Embedded_Fiat334_LHD:BASE_EMB_1MIC_BT_NB]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Fiat334.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[Embedded_SNA_LHD:BASE_EMB_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ####################################################################################################
+# Right-Hand-Drive
+# ####################################################################################################
+
+# ***********************************
+[Embedded_NONE_RHD:BASE_EMB_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# *********************************** This is a 2-Mic Chysler vehicle
+[Embedded_Fiat551_RHD:BASE_EMB_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# *********************************** This is a 2-Mic Chysler vehicle
+[Embedded_Fiat552_RHD:BASE_EMB_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# *********************************** This is a 2-Mic Chysler vehicle
+[Embedded_Fiat553_RHD:BASE_EMB_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Embedded_WK_RHD:BASE_EMB_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_WK.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[Embedded_LX_RHD:BASE_EMB_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_LX.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[Embedded_JC_RHD:BASE_EMB_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_JC.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Embedded_DS_RHD:BASE_EMB_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_DS.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[Embedded_D2_RHD:BASE_EMB_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Embedded_DD_RHD:BASE_EMB_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Embedded_DP_RHD:BASE_EMB_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Embedded_DJ_RHD:BASE_EMB_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Embedded_WD_RHD:BASE_EMB_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_WD.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[Embedded_DX_RHD:BASE_EMB_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_DX.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Embedded_LD_RHD:BASE_EMB_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_LD.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[Embedded_M156_RHD:BASE_EMB_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Embedded_ZD_RHD:BASE_EMB_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_ZD.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[Embedded_LA_RHD:BASE_EMB_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_LA.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[Embedded_RU_RHD:BASE_EMB_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Embedded_WM_RHD:BASE_EMB_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Embedded_WS_RHD:BASE_EMB_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Embedded_M157_RHD:BASE_EMB_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Embedded_PF_RHD:BASE_EMB_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# ***********************************
+[Embedded_KL_RHD:BASE_EMB_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_KL.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[Embedded_UF_RHD:BASE_EMB_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_UF.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[Embedded_UT_RHD:BASE_EMB_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# **********  1-microphone config (Fiat) *************************
+[Embedded_Fiat520_RHD:BASE_EMB_1MIC_BT_NB]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Fiat520.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# **********  1-microphone config (Fiat) *************************
+[Embedded_Fiat523_RHD:BASE_EMB_1MIC_BT_NB]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Fiat523.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# **********  1-microphone config (Fiat) *************************
+[Embedded_Fiat940_RHD:BASE_EMB_1MIC_BT_NB]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Fiat940.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# **********  1-microphone config (Fiat) *************************
+[Embedded_Fiat330_RHD:BASE_EMB_1MIC_BT_NB]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Fiat330.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# **********  1-microphone config (Fiat) *************************
+[Embedded_Fiat334_RHD:BASE_EMB_1MIC_BT_NB]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Fiat334.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[Embedded_SNA_RHD:BASE_EMB_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+# ####################################################################################################
+# Backwards compatibility secnario
+# ####################################################################################################
+
+# ***********************************
+[Embedded:BASE_EMB_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_hf_Default.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int.so
+
+
+# #######################################################
+#
+# Configuration for Bluetooth Siri Narrowband.  
+# Note it uses the same audio configuration as BT Telephony Narrowband
+# 
+# #######################################################
+
+# ####################################################################################################
+# Left-Hand-Drive
+# ####################################################################################################
+
+# ***********************************
+[NB_SIRI_NONE_LHD:BASE_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_vr_bt_siri_nb_Generic.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[NB_SIRI_WK_LHD:BASE_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_vr_bt_siri_nb_WK.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[NB_SIRI_LX_LHD:BASE_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_vr_bt_siri_nb_LX.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[NB_SIRI_DS_LHD:BASE_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_vr_bt_siri_nb_DS.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[NB_SIRI_WD_LHD:BASE_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_vr_bt_siri_nb_WD.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[NB_SIRI_LD_LHD:BASE_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_vr_bt_siri_nb_LD.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[NB_SIRI_ZD_LHD:BASE_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_vr_bt_siri_nb_ZD.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[NB_SIRI_LA_LHD:BASE_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_vr_bt_siri_nb_LA.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[NB_SIRI_RU_LHD:BASE_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_vr_bt_siri_nb_Generic.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[NB_SIRI_KL_LHD:BASE_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_vr_bt_siri_nb_KL.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[NB_SIRI_UF_LHD:BASE_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_vr_bt_siri_nb_UF.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[NB_SIRI_Fiat334_LHD:BASE_1MIC_BT_NB]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_vr_bt_siri_nb_Fiat334.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[NB_SIRI_Fiat520_LHD:BASE_1MIC_BT_NB]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_vr_bt_siri_nb_Fiat520.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[NB_SIRI_Fiat523_LHD:BASE_1MIC_BT_NB]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_vr_bt_siri_nb_Fiat523.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[NB_SIRI_Fiat551_LHD:BASE_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_vr_bt_siri_nb_Generic.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[NB_SIRI_Fiat552_LHD:BASE_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_vr_bt_siri_nb_Generic.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[NB_SIRI_Fiat553_LHD:BASE_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_vr_bt_siri_nb_Generic.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[NB_SIRI_SNA_LHD:BASE_2MIC_BT_NB_LHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_vr_bt_siri_nb_Generic.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ####################################################################################################
+# Right-Hand-Drive
+# ####################################################################################################
+
+# ***********************************
+[NB_SIRI_NONE_RHD:BASE_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_vr_bt_siri_nb_Generic.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[NB_SIRI_WK_RHD:BASE_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_vr_bt_siri_nb_WK.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[NB_SIRI_LX_RHD:BASE_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_vr_bt_siri_nb_LX.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[NB_SIRI_DS_RHD:BASE_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_vr_bt_siri_nb_DS.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[NB_SIRI_WD_RHD:BASE_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_vr_bt_siri_nb_WD.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[NB_SIRI_LD_RHD:BASE_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_vr_bt_siri_nb_LD.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[NB_SIRI_ZD_RHD:BASE_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_vr_bt_siri_nb_ZD.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[NB_SIRI_LA_RHD:BASE_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_vr_bt_siri_nb_LA.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[NB_SIRI_RU_RHD:BASE_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_vr_bt_siri_nb_Generic.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[NB_SIRI_KL_RHD:BASE_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_vr_bt_siri_nb_KL.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[NB_SIRI_UF_RHD:BASE_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_vr_bt_siri_nb_UF.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[NB_SIRI_Fiat334_RHD:BASE_1MIC_BT_NB]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_vr_bt_siri_nb_Fiat334.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[NB_SIRI_Fiat520_RHD:BASE_1MIC_BT_NB]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_vr_bt_siri_nb_Fiat520.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[NB_SIRI_Fiat523_RHD:BASE_1MIC_BT_NB]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_vr_bt_siri_nb_Fiat523.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[NB_SIRI_Fiat551_RHD:BASE_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_vr_bt_siri_nb_Generic.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[NB_SIRI_Fiat552_RHD:BASE_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_vr_bt_siri_nb_Generic.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[NB_SIRI_Fiat553_RHD:BASE_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_vr_bt_siri_nb_Generic.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so
+
+
+# ***********************************
+[NB_SIRI_SNA_RHD:BASE_2MIC_BT_NB_RHD]
+
+<SSE>
+BSDFile       = /fs/mmc0/app/share/handsfree/config/cmc_sse_vr_bt_siri_nb_Generic.bsd
+SharedObjFile = /fs/mmc0/app/lib/handsfree/libsse_int_3_16_0.so

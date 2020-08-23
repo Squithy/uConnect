@@ -1,0 +1,154 @@
+#!/usr/bin/lua
+
+local RST_CNT_POSN = 4
+local RST_CNT_MAX = 3
+local MMCERR_CNT_POSN = 6
+local UPD_MODE_POSN = 2
+
+local function hard_reset()
+   print("mmc_chk:Hard reset\n")
+   os.execute('echo -n "\\021" > \/dev\/ipc\/ch4')
+   os.sleep(10)
+   print("mmc_chk ERROR:Unable to reset\n")
+end
+
+local function write_and_no_reset(f, a)
+   if (RST_CNT_POSN == f:seek("set", RST_CNT_POSN)) then
+      f:write(string.char(a))
+   else
+      print("MMC_CHK:write_and_no_reset - Error seeking")
+   end
+   
+   f:close()
+end
+
+local function write_and_reset(f, a)
+   if (RST_CNT_POSN == f:seek("set", RST_CNT_POSN)) then
+      f:write(string.char(a))
+   else
+      print("MMC_CHK:write_and_reset - Error seeking")
+   end
+   
+   f:close()
+   hard_reset()
+end
+
+local function set_update_mode()
+   local f = io.open("/dev/mmap/swdl", "w")
+   if f then
+      local r, e = f:seek("set", UPD_MODE_POSN)
+      if r and r == UPD_MODE_POSN then
+           f:write("P")
+      else
+         if e then print("mmc_chk ERROR: ", e) end
+         hard_reset()
+      end
+   else
+      print("mmc_chk ERROR:Unable to open swdl to set update mode\n")
+      hard_reset()
+   end
+   f:close()
+end
+
+local function inc_mmcerr_cnt()
+   local f = io.open("/dev/mmap/system", "r+")
+   if f then
+      local r, e = f:seek("set", MMCERR_CNT_POSN)
+      if r and r == MMCERR_CNT_POSN then 
+         local x = f:read(1)
+         if x and x ~= 0 then 
+            local j = (string.byte(x) + 1) % 256
+            f:seek("set", MMCERR_CNT_POSN)
+            f:write(string.char(j))
+         else
+            print("mmc_chk ERROR:Error reading MMC error count\n")
+            f:seek("set", MMCERR_CNT_POSN)
+            f:write(string.char(1))
+         end
+      else
+         if e then print("mmc_chk ERROR: ", e) end
+      end
+      f:close()
+   else
+      print("mmc_chk ERROR:Unable to increment error mode reset count (open)\n")
+   end
+end
+
+local function reset_rst_cnt()
+   local f = io.open("/dev/mmap/system", "r+")
+   if f then
+      local r, e = f:seek("set", RST_CNT_POSN)
+      if r and r == RST_CNT_POSN then 
+         f:write(string.char(0))
+      else
+         if e then print("mmc_chk ERROR: ", e) end
+      end
+      f:close()
+   else
+      print("mmc_chk ERROR:Unable to increment error mode reset_count (open)\n")
+   end
+end
+
+print("\nmmc_chk:Checking for MMC0")
+-- if boot.sh is there then exit and return 0
+local cmd = "qwaitfor /fs/mmc0/app/bin/boot.sh"
+print(cmd)
+local result = os.execute(cmd)
+if result == 0 then
+   reset_rst_cnt()
+   os.exit(0)
+end
+
+print("mmc_chk ERROR:Can't find MMC0 so retrying", result)
+
+-- else handle missing mmc0
+f = io.open("/dev/mmap/system", "r+")
+if f then
+   local r, e = f:seek("set", RST_CNT_POSN)
+   if r and r == RST_CNT_POSN then
+      local x = f:read(1)
+      if x and x ~= 0 then 
+         local j = string.byte(x)
+         if j == RST_CNT_MAX then
+            -- zero reset count and go into update mode
+            print("mmc_chk ERROR:Unable to communicate with MMC0 so setting update mode ("..j..")\n")
+            inc_mmcerr_cnt()
+            set_update_mode()
+              write_and_no_reset(f,0)
+              os.exit(0)
+         elseif j > RST_CNT_MAX then
+            -- zero out reset count and reset
+            print("mmc_chk ERROR:Unknonwn count error ("..j..")\n")
+            write_and_reset(f, 0)
+         else
+            -- increment reset count and reset
+            j = j + 1
+            print("mmc_chk ERROR:Reset ("..j..")\n")
+            write_and_reset(f, j)
+         end
+      else
+         -- assume bad checksum in FRAM and zero out (first startup?)
+         print("mmc_chk ERROR:Unable to read file, assuming checksum error")
+         write_and_reset(f, 1)
+      end
+   else
+      -- write error message and reset if we can't seek FRAM
+      if e then print("mmc_chk ERROR: ", e) end
+      f:close()
+      hard_reset()
+   end
+   -- just defensive.  should never get here
+   os.sleep(5)
+   print("mmc_chk ERROR:Should never get here\n")
+   f:close()
+   hard_reset()
+else
+   -- do a reset if we can't even open FRAM
+   hard_reset()
+end
+
+--[[
+# Test strings
+echo "\00\00\00\01\02\03\0377\0377\0377\0377\0377" > /dev/mmap/system
+hd -v /dev/mmap/system
+--]]

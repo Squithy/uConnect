@@ -1,0 +1,9 @@
+# See details at http://hbfh/wiki/index.php/CmcNetworking 
+
+# the name you want your target to have on the network
+TARGET_NAME=cmc_yourinitials
+
+# set static IP to fall back to (defaults to 192.168.1.1 if this file does not exist)
+STATIC_IP=192.168.57.99
+
+export TARGET_NAME STATIC_IP

@@ -1,0 +1,19 @@
+HBTracePersistence 1.1.0
+#
+# TraceSettings for Chrysler CMC
+#
+# The syntax of hbtc files is as following:
+# <scope> <type of messages> <destination>
+#
+# <scope>            a specific scope, a grouping of scopes or all scopes (*)
+# <type of message>  0x00 none - 0x02 error - 0x04 entry/exit - 0x08 executed block - 0x20 warning - 0x40 message - 0xff all
+# <destination>      0x00 none - 0x01 trace server - 0x02 kernel - 0x04 slog - 0x08 console - 0xff all
+#
+###################################################################################################
+# Generic settings
+###################################################################################################
+[audioCtrlSvc]
+* 22 01
+AudioCtrlSvc_main 22 01
+
+

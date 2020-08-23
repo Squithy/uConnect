@@ -1,0 +1,30 @@
+HBTracePersistence 1.1.0
+#
+# TraceSettings for Chrysler CMC
+#
+# The syntax of hbtc files is as following:
+# <scope> <type of messages> <destination>
+#
+# <scope>            a specific scope, a grouping of scopes or all scopes (*)
+# <type of message>  0x00 none - 0x02 error - 0x04 entry/exit - 0x08 executed block - 0x20 warning - 0x40 message - 0xff all
+# <destination>      0x00 none - 0x05 trace server - 0x02 kernel - 0x04 slog - 0x08 console - 0xff all
+#
+###################################################################################################
+# Generic settings
+###################################################################################################
+[cmcManager]
+* 62 01
+cmcManager_CCMCSvcClient 62 01
+cmcManager_CAudioMgrImpl_processSvcIpcError 62 01
+cmcManager_CEntertainmentModeMgrImpl_processTimerEvent 62 01
+cmcManager_CEntertainmentModeMgrImpl_handleRequestChangeMode 62 01
+cmcManager_CEntertainmentModeMgrImpl_onSMActionActivateEntertainmentMode 62 01
+cmcManager_CEntertainmentModeMgrImpl_onSMActionEntSourceChangeComplete 62 01
+cmcManager_CEntertainmentModeMgrImpl_handleLastModeSituation 62 01
+cmcManager_CEntertainmentModeMgrImpl_handleDriverTypeResult 62 01
+cmcManager_CEntertainmentModeMgrImpl_handlePersistenceResult 62 01
+cmcManager_CEntertainmentModeMgrImpl_handlePowerModeChange 62 01
+cmcManager_CEntertainmentModeMgrImpl_handleIgnStatus 62 01
+cmcManager_CEntertainmentModeMgrImpl_onModeAvailabilityChange 62 01
+cmcManager_CEntertainmentModeMgrImpl_handleVehicleConfigResult 62 01
+cmcManager_CEntertainmentModeMgrImpl_processDriverSettingsABSignal 62 01

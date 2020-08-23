@@ -1,0 +1,40 @@
+#!/usr/bin/lua
+-- start splash
+
+local onoff = require("onoff")
+local splash = require("cmc.splash")
+local utils = require("cmc.utils")
+
+local invisible = false
+local splashFile = ""
+
+function startSplash(splashFile, invisible)
+	local invisibleOpt = ""
+	if invisible then
+		invisibleOpt = "-i "
+	end
+
+	-- no timeout - stay around forever
+	local cmd = "nice -n-3 splash "..invisibleOpt..splashFile
+	os.execute(cmd)
+end
+
+function startSplashMovie(splashMovie, timeOut)
+	local cmd = string.format("splash-movie -a -w -t %d %s", timeOut, splashMovie)
+	os.execute(cmd)
+end
+
+local lastAwakeMode, autoSwitch = onoff.readLastAwakeModeAndAutoSwitch()
+if not onoff.videoSystemActive(lastAwakeMode, autoSwitch) then 
+	invisible = true
+end
+
+splashMovie = splash.getSplashMovie()
+if utils.isFile(splashMovie) then
+	-- start splash-movie if the movie file exists
+	startSplashMovie(splashMovie, 5000)
+else
+	-- fall back to the splash static image if the movie file doesn't exist
+	splashFile = splash.getSplashImage()
+	startSplash(splashFile, invisible)
+end

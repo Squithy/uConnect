@@ -1,0 +1,25 @@
+HBTracePersistence 1.1.0
+#
+# The syntax of hbtc files is as following:
+# <scope> <type of messages> <destination>
+#
+# <scope>            a specific scope, a grouping of scopes or all scopes (*)
+# <type of message>  0x00 none - 0x02 error - 0x04 entry/exit - 0x08 - executed block in a function - 0x20 warning - 0x40 message - 0xff all
+# <destination>      0x00 none - 0x01 trace server - 0x02 kernel - 0x04 slog - 0x08 console - 0xff all
+#
+# Examples for the new syntax of version 1.1.0:
+#
+#     HBTracePersistence 1.1.0
+#     # these will be applied to all processes
+#     * 00 00
+#     test ff 09
+#     [MyRootProcess]
+#     # affects only processes named 'MyRootProcess'
+#     platform_scope_whatever 62 09
+#     [AChildProcess]
+#     # affects only processes named 'AChildProcess'
+#     platform_scope_whatever ff 09
+#     [*]
+#     # apply these to all processes
+#     project_ 62 01
+imp_nav_jpn 22 01

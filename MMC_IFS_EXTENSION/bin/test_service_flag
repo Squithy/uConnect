@@ -1,0 +1,28 @@
+#!/usr/bin/lua
+
+require "service"
+
+-- if requested service flag is true, exit 0 (quiet) else exit 1
+if arg[1] ~= nil then
+   local t = {flag = arg[1]}
+   
+   repeat
+      local resp,e = service.invoke("com.harman.service.platform", 'test_service_flag', t)
+      if resp and (resp.ready == true) and (resp.state == true) then
+         os.exit(0)
+      else
+         if (e ~= nil) then print("test_service_flag:", e) end
+         
+         -- wait up to 5 seconds for auth service
+         os.sleep(4)
+         os.execute("waitfor /dev/serv-mon/com.harman.service.authenticationService 1")
+      end
+   until resp and resp.ready
+
+   print("test_service_flag: service flag is ", resp.state)
+
+else
+   print("test_service_flag: no flag on command line")
+end
+
+os.exit(1)

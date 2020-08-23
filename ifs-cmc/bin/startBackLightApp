@@ -1,0 +1,38 @@
+#!/usr/bin/lua
+-- start the backlight
+require "ipc"
+local onoff = require("onoff")
+
+local INTERFACE_VERSION = 0x02
+local MAIN_CPU_STATUS = {
+    ["initializing"]  = 0x01,
+    ["running"]       = 0x02,
+    ["ready_for_off"] = 0x03,
+    ["shutting_down"] = 0x04,
+}
+local VIDEO_STATUS = {
+    ["initializing"] = 0x00,
+    ["on_splash"]    = 0x03,
+    ["on_hmi"]       = 0x04,
+}
+local AUDIO_STATUS = {
+    ["initializing"] = 0x00,
+    ["on"]           = 0x03,
+}
+
+-- start back light
+local chan = assert(ipc.open(2, "w")) 
+if (chan ~= nil) then
+    local msg = ipc.msg(4)
+    msg[1] = INTERFACE_VERSION
+    msg[2] = MAIN_CPU_STATUS.running
+    local lastAwakeMode, autoSwitch = onoff.readLastAwakeModeAndAutoSwitch()
+    if onoff.videoSystemActive(lastAwakeMode, autoSwitch) then
+        msg[3] = VIDEO_STATUS.on_splash
+    else
+        msg[3] = VIDEO_STATUS.initializing
+    end
+    msg[4] = AUDIO_STATUS.initializing
+    chan:write(msg)
+    chan:close()
+end

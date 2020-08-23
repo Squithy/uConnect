@@ -1,0 +1,816 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+<style>
+body
+{
+   font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+table
+{
+   position:relative;
+   top:0px;
+   z-index:-1;
+   font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+   width:900px;
+}
+th.replayStatistics
+{ 
+    background-color:#CEE8F0;
+}
+h1
+{
+	text-align:center;
+   vertical-align:center;
+   color:#0000ff;
+}
+div.pageHeader
+{
+   border-style: solid;
+   border-width: 0px;
+   background-color:#F0F0F0;
+   height:50px;
+   width:894px;
+   padding-top:0px;
+   padding-bottom:0px;
+}
+
+h2 { margin-top: 1.5em;
+     text-align:center;
+   }
+
+h2.errorHeader
+{
+   text-align:center;
+   color:#ff0000;
+   font-weight:bold;
+   font-size:2.0em;
+   background-color:#F0F0F0;
+}
+
+h3
+{
+    text-align:center;
+}
+
+div.statusHeader
+{
+   border-style: solid;
+   border-width: 0px;
+   height:50px;
+   width:894px;
+   padding-top:0px;
+   padding-bottom:0px;
+}
+
+/* Two column table for ReplayState, SystemTime, etc. */
+table.status
+{
+    font-weight:light;
+    font-size:1.1em;
+    width: 700px;
+    text-align:left;
+}
+
+/* left column, 300 px wide in standard weight font */
+td.status
+{
+   width:300px;
+   font-weight:light;
+   background-color:inherited;
+}
+td.statusBold
+{
+   width:300px;
+   font-size:1.1em;
+   font-weight:bold;
+   background-color:#FFC2C2; /* pink */
+}
+/* Right column of Replay Summary table*/
+td.statusCol2
+{
+   width:400px;
+   font-size:1.0em;
+   font-weight:light;
+   background-color:inherited;
+}
+td.statusCol2Bold
+{
+   width:400px;
+   font-size:1.0em;
+   font-weight:bold;
+   background-color:inherited;
+}
+td.statusCol2Highlight
+{
+   width:400px;
+   font-size:1.1em;
+   font-weight:bold;
+   color:#0000FF;     /* bluetext*/
+   background-color:#FFC2C2; /* pink */
+}
+
+textarea
+{
+     font-family:"Trebuchet MS", Arial;
+     font-size:1.1em;
+     padding: 1px 10px;
+}
+
+input
+{
+   margin-top: 3px;
+   margin-bottom: 2px;
+}
+
+table.validation
+{
+   border-style: solid;
+   border-width: 1px;
+   width:800px;
+   margin-left: 50px;
+}
+
+th.validation
+{
+   font-size:1.1em;
+   text-align:center;
+   background-color:#0000FF;
+   color:#ffffff;
+}
+
+th.validation2
+{
+   font-size:1.1em;
+   text-align:center;
+   border-style: solid;
+   border-width: 1px;
+   background-color:#E0E0E0;
+}
+
+td.validation
+{
+   border-style: solid;
+   border-width: 1px;
+   text-align:center;
+}
+
+td.validationFailed
+{
+   border-style: solid;
+   border-width: 1px;
+   background-color:#FFC2C2; /* pink */
+   text-align:center;
+}
+
+td.validationWarning
+{
+   border-style: solid;
+   border-width: 1px;
+   text-align:center;
+   background-color:#FFFF99; /* light yellow */
+}
+
+span.validationUnits
+{
+   position: absolute;
+   left: 250px;
+   font-weight: lighter;
+}
+
+/* Styles for Client Status */
+th.clientStatusTop
+{
+/*Big Header on Blue Background, used for "Active Clients" Header */
+   font-size:1.1em;
+   text-align:center;
+   padding-top:5px;
+   padding-bottom:4px;
+   background-color:#0000FF;
+   color:#ffffff;
+}
+th.clientStatus
+{
+/*Light Blue Background, used for "Active Clients" subheader  */
+   font-size:1.1em;
+   text-align:center;
+   background-color:#E0E0E0;
+}
+
+th.packetCounts
+{
+/*Table Header with Light Blue Background, used behind "Packets Received, Kept, Sent" */
+   background-color:#E0E0E0;
+   text-align:center;
+   width:8%;
+}
+span.packetCount
+{
+   /* light blue background */
+   background-color:#E0E0E0;
+}
+
+
+/* styles for errors and warnings in list at top of screen */
+span.errorItem
+{
+   font-size:1.1em;
+   font-weight:bold;
+}
+span.warningItem
+{
+   font-size:1.1em;
+}
+
+/* Big and Bold Text */
+span.bigText
+{
+   font-weight:light;
+   font-size:1.2em;
+}
+span.boldText
+{
+   font-weight:bold;
+   font-size:1.1em;
+}
+
+span.bigBold
+{
+   font-weight:bold;
+   font-size:1.2em;
+   text-align:center;
+}
+
+/* Replay Statistics Table */
+table.replayStatistics
+{
+}
+th.replayStatistics
+{
+   background-color:#E0E0E0;
+}
+
+/* Fieldset to enclose file selection form */
+fieldset
+{
+   position:relative;
+   background-color: #eee;
+   width: 400px;
+}
+
+/* Styles for Replay Selection form */
+div.replayFiles
+{
+    /* Gray background behind left side of file list */
+    background-color: #ddd;
+	 width: 215px;
+}
+
+/* Styling for List Items */
+ul  li { display:block; color: #ccc; background-color: #ccc; padding: 0; width: 175px; margin-bottom: 0; }
+ul li a { display:block; color: #000; padding: 3px 6px; font-size: small; }
+ul li a:hover { display:block; color: #369; background-color: #eee; padding: 3px 8px;  }
+li { list-style-type: none; }
+		
+li.selected {
+width: 163px; 
+background: #69c; 
+background-position:98% 50%;
+color: #fff;
+font-weight:bold;
+padding: 3px 6px;
+font-size: normal;}
+		
+</style>
+
+<script>
+var clockTimer;          /* Interval timer ticks off seconds */
+var reloadTimer;         /* Timeout TImer to Reload XML data */
+baseUpdateRate = 500;    /* Minimum interval between updates = 500 ms */
+secondsSinceUpdate = 0;  /* Seconds since last XML update */
+updateInterval = 1000;   /* Default to One Second Updates */
+autoUpdate = true;       
+var awaitingUpdate = 0;  /* =1 if awaiting update from Server */
+numQueuedUpdates = 0; /* Count of how may times browser tried to send
+                             Ajax request while another one was pending.
+                             if this value > 0, update rate slow to 1/second */
+var replayStartTime = 0;  /* startTime for ReplaySegment               */
+var replayEndTime = 0;
+var timeControlLocked = false; /* true if user is currently typing something into control */
+function OnSecondElapsed()
+{	
+      document.getElementById("connectionStatusDiv").innerHTML="<table class=\"status\"><tr><td class=\"status\">Server Response Time:</td><td class=\"statusCol2\">"+secondsSinceUpdate+"</td></tr></table>"; 
+      secondsSinceUpdate = secondsSinceUpdate + 1;
+      if(secondsSinceUpdate > 7)
+      {
+          document.getElementById("refreshPageDiv").hidden = false; 
+         
+         /*Been too long, Erase all things replay*/
+         document.getElementById("replaySummaryDiv").innerHTML="";
+         document.getElementById("replayXMLDiv").innerHTML="";
+         document.getElementById("replayNetTimeDiv").innerHTML="";
+         document.getElementById("clockSetControlDiv").hidden = true;
+         document.getElementById("replayTableDiv").innerHTML="";
+         document.getElementById("validationSummaryDiv").innerHTML=" ";
+         document.getElementById("statusHeaderDiv").innerHTML="<h2>Connection to Server Lost</h2>";
+      }  
+      else if(secondsSinceUpdate > 1)
+      {
+         document.getElementById("connectionStatusDiv").innerHTML="<table class=\"status\"><tr><td class=\"status\">Server Response Time:</td><td class=\"statusCol2\">"+secondsSinceUpdate+"</td></tr></table>"; 
+      }  
+      
+      if(autoUpdate && (updateInterval > 0) ) /* Reset auto-reload timer */
+      {
+       /*  reloadTimer = setInterval(function(){loadXMLDoc()},updateInterval);*/
+         updateTime = (1000/updateInterval).toFixed(1);
+         document.getElementById("updateRateDiv").innerHTML="UpdateRate:" + updateTime + " Frames/Second<br>Queued Updates:"+numQueuedUpdates+"<br>";
+      }
+      else
+      {    
+         document.getElementById("updateRateDiv").innerHTML="Queued Updates:"+numQueuedUpdates+"<br>";
+      }  
+}
+function OnMouseIn()
+{
+     timeSetVal = document.getElementById("TimeSetControl").color = "black";
+     timeControlLocked = true;
+     document.getElementById("debugOutputDiv").innerHTML="OnMouseIn::Time Control is locked";
+}
+function OnFocus()
+{
+     timeSetVal = document.getElementById("TimeSetControl").color = "black";
+     timeControlLocked = true;
+    /* document.getElementById("debugOutputDiv").innerHTML="OnFocus::Time Control is locked";*/
+}
+	
+function loadXMLDoc()
+{
+var xmlhttp;
+if(awaitingUpdate == 1)
+{
+	/* another AJAX update is pending. Don't send a new one */
+    return;
+}
+if (window.XMLHttpRequest)
+  {
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  
+      
+xmlhttp.onreadystatechange=function()
+  {
+  
+  /* failed update ?*/
+  if((xmlhttp.status==0) && (numQueuedUpdates > 0))
+         numQueuedUpdates = numQueuedUpdates -1;
+
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+      if(numQueuedUpdates > 0)
+           numQueuedUpdates = numQueuedUpdates -1;
+
+      document.getElementById("refreshPageDiv").hidden = true; 
+      secondsSinceUpdate = 0;
+      xmlDoc=xmlhttp.responseXML;
+      
+      /* Display Status Header */
+      msg=xmlDoc.getElementsByTagName("StatusHeader");
+      txt = "";
+      if(msg.length > 0)
+      {
+           txt = msg[0].childNodes[0].nodeValue;
+      }
+      document.getElementById("statusHeaderDiv").innerHTML = txt;
+         
+      /* Display Error Messages */
+      msgs=xmlDoc.getElementsByTagName("StatusMessages");
+      txt="";
+      if(msgs.length > 0)
+      {
+         document.getElementById("systemMessagesDiv").hidden = false;
+         for (i=0;i<msgs.length;i++)
+         {
+            txt=txt + msgs[i].childNodes[0].nodeValue;
+         }
+         document.getElementById("statusMessageArea").value=txt;
+      }
+      else
+      {
+          document.getElementById("systemMessagesDiv").hidden = true;
+      }
+      
+      txt = "<table class=\"status\">";
+      /* Display Replay State (Stopped, Replay, etc.)*/
+      replayStateNode=xmlDoc.getElementsByTagName("ReplayStateNode");
+      var clockName = "System Time:";
+      if(replayStateNode.length>0)
+      {
+         replayState = replayStateNode[0].childNodes[0].nodeValue;
+         if("Replay" == replayState)
+         {
+              clockName = "Replay Time:";
+         }
+         txt = txt + "<tr><td class=\"status\">Replay State:</td><td class=\"statusCol2\">" + replayState +"</td></tr>";
+      }
+      
+      /* Display System ( or Replay) Time */
+      systemTimeNode=xmlDoc.getElementsByTagName("SystemTimeNode");
+      if(systemTimeNode.length>0)
+      {
+         systemTime = systemTimeNode[0].childNodes[0].nodeValue;
+         txt = txt + "<tr><td class=\"status\">" + clockName + "</td><td class=\"statusCol2\">" + systemTime +"</td></tr>";
+      }
+      
+      /* Display Server response time */
+      txt = txt + "</table>"; 
+      document.getElementById("systemStatusDiv").innerHTML=txt;
+
+      /* Display Client Data */
+      x=xmlDoc.getElementsByTagName("ClientData");
+      /* Write table Headers even if no Clients */
+      txt="<table border=1 class=\"clientStatus\"><tr><th colspan=9 class=\"clientStatusTop\">Active Clients</th></tr>" +
+         "<tr><th class=clientStatus colspan=2></th><th class=packetCounts colspan=4>Packets</th><th class=clientStatus colspan=3></th></tr>" +
+         "<tr><th class=clientStatus>Port</th><th class=clientStatus>Name</th><th class=packetCounts >Received</th><th class=packetCounts>Kept</th><th class=packetCounts>Sent</th><th class=packetCounts>Dropped</th><th class=clientStatus>Seq Num</th><th class=clientStatus>Status</th><th class=clientStatus style=width:30%>Client State</th></tr>";
+
+      if(x.length > 0)
+      {
+      /* We Got Clients! */
+         for (i=0;i<x.length;i++)
+         {
+            txt=txt + x[i].childNodes[0].nodeValue;
+         }
+      }
+      txt = txt+"</table><br>";
+      document.getElementById("clientDataTableRowDiv").innerHTML=txt;
+
+      x=xmlDoc.getElementsByTagName("ReplaySummary");
+      txt="";
+      if(x.length > 0)
+      {
+         for (i=0;i<x.length;i++)
+         {
+             txt=txt + x[i].childNodes[0].nodeValue;
+         }
+         document.getElementById("replaySummaryDiv").innerHTML=txt;
+      }
+
+      x=xmlDoc.getElementsByTagName("ReplayXMLData");
+      txt="";
+      if(x.length > 0)
+      {
+         txt="";
+         linesRead = x[0].childNodes[0].childNodes[0].nodeValue;
+         linesSent = x[0].childNodes[1].childNodes[0].nodeValue;
+         linesTotal = x[0].childNodes[2].childNodes[0].nodeValue;
+         ignitionCycle = x[0].childNodes[3].childNodes[0].nodeValue;
+         replayStartTime = x[0].childNodes[4].childNodes[0].nodeValue;
+         replayEndTime = x[0].childNodes[5].childNodes[0].nodeValue;
+         totalCycles = x[0].childNodes[6].childNodes[0].nodeValue;
+         netReplayTime = x[0].childNodes[7].childNodes[0].nodeValue;
+         totalReplayTime = x[0].childNodes[8].childNodes[0].nodeValue;
+         userTargetTime = x[0].childNodes[9].childNodes[0].nodeValue;
+                  
+         /* Display Net replay time (total time thus far )*/
+         txt = "<table class=\"status\"><tr><td class=\"status\">Net Time Elapsed:</td><td class=\"statusCol2\">" + netReplayTime + "</td></tr></table><br>";
+         document.getElementById("replayNetTimeDiv").innerHTML=txt;
+         
+         /* display table of replay data */
+         txt = "";
+         txt = txt + "<table border=1 class=\"replayStatistics\"><tr border=1><th class=\"replayStatistics\">Lines Read</th><th class=\"replayStatistics\">Lines Sent</th><th class=\"replayStatistics\">Lines Total</th><th class=\"replayStatistics\">Ignition Cycle</th><th class=\"replayStatistics\">Cycle Start Time</th><th class=\"replayStatistics\">Cycle Stop Time</th><th class=\"replayStatistics\">Total Cycles</th><th class=\"replayStatistics\">Total Time</th></tr>\n";
+         txt = txt + "<tr><td>"+linesRead+"</td><td>"+linesSent+"</td><td>"+linesTotal+"</td><td>"+ignitionCycle+"</td><td>"+replayStartTime+"</td><td>"+replayEndTime+"</td><td>"+totalCycles+"</td><td>"+totalReplayTime +"</td></table>";
+         document.getElementById("replayTableDiv").innerHTML=txt;
+ 
+         /* set a value in Clock Set Control, unless user is typing something now */
+         /* timeControlLocked implies user is currently typing into control */
+         if( timeControlLocked == false)
+         {
+            /* display target time from prior update, if valid */
+            if(userTargetTime > 1.0)
+            {
+               document.getElementById("TimeSetControl").value = userTargetTime;
+               timeControlValid = true;
+            }
+            else
+            {
+               /* grey out text and put in current total time */
+               document.getElementById("TimeSetControl").style.color = "grey";
+               document.getElementById("TimeSetControl").value = netReplayTime;
+            }
+         }
+      }
+      
+      
+      x=xmlDoc.getElementsByTagName("ValidationSummary");
+      txt="";
+      if(x.length > 0)
+      {
+           summaryNodes = x[0];
+           txt = txt + "<br><table class=\"validation\" >";
+           txt = txt + "<tr><th class=\"validation\" colspan=3>Validation Results</th></tr>";
+           txt = txt + "<tr><th class=\"validation2\">Value</th><th class=\"validation2\">Mean : Limit</th><th class=\"validation2\">Max : Limit</th></tr>";
+           for (i=0;i<summaryNodes.childNodes.length;i++)
+           {
+                valResult = summaryNodes.childNodes[i];
+                attrib = valResult.attributes;
+                valName = valResult.nodeName ;
+                if(attrib.getNamedItem("Hidden"))
+                     continue;
+                mean = attrib.getNamedItem("Mean").nodeValue;
+                max = attrib.getNamedItem("Max").nodeValue;
+                unit = attrib.getNamedItem("Units").nodeValue;
+                descriptiveName = attrib.getNamedItem("DescriptiveName").nodeValue;
+                
+                /* insert data source (Baseline or Replay) if available */
+                if(attrib.getNamedItem("Source") != null)
+                {
+                   dataSource = attrib.getNamedItem("Source").nodeValue;
+                   if(dataSource != "Delta")
+                       descriptiveName = dataSource + " " + descriptiveName;
+                }
+                      
+                /* if Validity != "Valid", highlight row */
+                validationCSSClass = "validation";
+                limitVal = "";
+                if(attrib.getNamedItem("Validity") != null)
+                {
+                    validity = attrib.getNamedItem("Validity").nodeValue;
+                    if(validity == "Invalid")
+                    {
+                          validationCSSClass = "validationFailed";
+                    }
+                    else if (validity == "Warning")
+                    {
+                           validationCSSClass = "validationWarning";
+                    }
+                }
+                
+                /* Show limit values from tolerance file, if available */
+                if(attrib.getNamedItem("MeanLimit"))
+                {
+                  limitVal = attrib.getNamedItem("MeanLimit").nodeValue;
+                  mean = mean + " : " + limitVal;
+                }
+ 
+                if(attrib.getNamedItem("MaxLimit"))
+                {
+                  maxLimit = attrib.getNamedItem("MaxLimit").nodeValue;
+                  max = max + " : " + maxLimit;
+                }
+
+                /* If maximum is zero, ignore */
+                if (max == 0)
+                {
+                     continue;  
+                }
+                txt = txt + "<tr><td style=\" text-align:left;\" class=" + validationCSSClass + "><strong>" + descriptiveName + "</strong><span class=\"validationUnits\">(" + unit + ")</span></td><td class=" + validationCSSClass + ">" + mean + "</td><td class=" + validationCSSClass + ">" + max + "</td></tr>";
+           }
+           txt = txt + "</table></br>";
+           document.getElementById("validationSummaryDiv").innerHTML=txt;
+      }
+      
+      
+      
+      /* Hide Clock Set Control if Not Replaying */
+      x=xmlDoc.getElementsByTagName("ReplayActive");
+      if(x.length > 0)
+      {
+           document.getElementById("clockSetControlDiv").hidden = false;
+      }
+      else
+      {
+         document.getElementById("clockSetControlDiv").hidden = true;
+      }
+      
+      /* Show "File Scan" message if appropriate */
+      x=xmlDoc.getElementsByTagName("ScanningFile");
+      if(x.length > 0)
+      {
+           document.getElementById("scanningLogfileDiv").disabled = true;
+           document.getElementById("clockSetControlDiv").hidden = true;
+      }
+      else
+      {
+            document.getElementById("scanningLogfileDiv").hidden = true;
+            document.getElementById("scanningLogfileDiv").disabled = false;
+      }
+ 
+      x=xmlDoc.getElementsByTagName("DisableAllButtons");
+      if(x.length > 0)
+      {
+         document.getElementById("buttonDiv").hidden = true;
+      }
+      else
+      {
+         document.getElementById("buttonDiv").hidden = false;
+  
+      x=xmlDoc.getElementsByTagName("DisableStopButton");
+      if(x.length > 0)
+      {
+         document.getElementById("stopButton").disabled = true;
+      }
+      else
+      {
+         document.getElementById("stopButton").disabled = false;
+      }
+      
+      x=xmlDoc.getElementsByTagName("DisablePlayButton");
+      if(x.length > 0)
+      {
+         document.getElementById("replayButton").disabled = true;
+      }
+      else
+      {
+         document.getElementById("replayButton").disabled = false;
+      }
+      
+      x=xmlDoc.getElementsByTagName("DisableRecordButton");
+      if(x.length > 0)
+      {
+         document.getElementById("recordButton").disabled = true;
+      }
+      else
+      {
+         document.getElementById("recordButton").disabled = false;
+      }
+        
+      x=xmlDoc.getElementsByTagName("DisableQuitButton");
+      if(x.length > 0)
+      {
+         document.getElementById("quitButton").disabled = true;
+      }
+      else
+      {
+         document.getElementById("quitButton").disabled = false;
+      }
+      }
+      
+      updateInterval = baseUpdateRate;
+      x=xmlDoc.getElementsByTagName("slowUpdateRate");
+      /* slow update rate if server says to */
+      if(x.length > 0)
+      {
+         updateInterval = 1000; /* Slow Updates */
+      }
+   
+      
+    }
+    else if(xmlhttp.status==404)
+    {
+      document.getElementById("systemStatusDiv").innerHTML="<h2>Server Connection Failed</h2>";
+    }
+  };
+  
+  awaitingUpdate=0;
+   /* Don't queue new update if current count > 2 */
+   if(numQueuedUpdates < 3)
+   {
+      xmlhttp.open("GET","AJAX?t=" + Math.random(),true);
+      xmlhttp.send();
+      numQueuedUpdates = numQueuedUpdates + 1;
+   }
+   else
+   { 
+       /* too many updates queued, slow them down */
+       updateInterval = 1000;
+   }
+   /* Timeout timer fires if no response in 5 seconds */
+   reloadTimer = setTimeout(function(){loadXMLDoc()},updateInterval);
+}
+
+</script>
+
+<script>
+function stopAutoUpdate()
+{
+   clearTimeout(reloadTimer);
+	clearInterval(clockTimer);
+   autoUpdate = false;
+}
+
+function resetURL()
+{
+  window.location.assign("http://" + location.hostname +  "/index.html")
+}
+  
+function reloadClientTable()
+{
+	loadXMLDoc();
+}
+
+function autoReloadClientTable()
+{
+	loadXMLDoc();
+   if(updateInterval > 0)  /* Set auto-reload timer */
+   {
+      autoUpdate = true;
+      reloadTimer = setTimeout(function(){loadXMLDoc()},updateInterval);
+      clockTimer = setInterval( function(){OnSecondElapsed()}, 1000);
+   }
+   else
+   {
+       document.getElementById("scriptErrorDiv").innerHTML="Error: Update Time = Zero";
+   }
+}
+
+</script>
+</head>
+
+
+<body <!-- #onLoad -->>
+<div class="pageHeader"><H1>Replay Manager</H1></div>
+<!-- #status -->
+
+<div class="statusHeader" id="statusHeaderDiv"></div>
+
+<div id="systemMessagesDiv">
+<textarea id="statusMessageArea" rows="6" cols="105"></textarea>
+<br><br> </div>
+
+<div id="systemStatusDiv">
+</div>
+
+<div id="connectionStatusDiv">
+</div>
+
+<div id="refreshPageDiv">
+<br><span class="bigBold"><a href="\index.html">Refresh Page</a></span>
+</div>
+
+<div id="replayXMLDiv">
+</div>
+
+<div id="replaySummaryDiv">
+</div>
+
+
+<div id="replayNetTimeDiv">
+</div>
+
+
+<div id="scanningLogfileDiv">
+   <h2>Scanning Log File</h2>
+</div>
+
+
+<div id="ClockValidationDiv"></div>
+
+
+<div id="clockSetControlDiv">
+<span class="bigText"><form name="TimeSetControl"  action=index.html method=get>
+Set Time: <input type=text name="TimeSetControl"  id="TimeSetControl" onmouseover=OnMouseOver() onfocus=OnFocus()>
+<button type=submit  >Set</button></form></span>
+</div>
+<div id="replayTableDiv">
+
+</div>
+
+<div id="validationSummaryDiv">
+</div>
+
+<br>
+
+<div id="debugOutputDiv"></div> 
+<div id="clockDebugDiv"></div>
+<div id="replayFilesDiv">
+<!-- #replayFilesDiv -->
+</div>
+
+<div id="clientDataTableRowDiv">
+
+</div>
+
+<div id="GPSDataDiv">
+
+</div>
+
+<div id="dynamicDataDiv">
+<!-- #dynamicData -->
+</div>
+
+<div id="scriptErrorDiv"></div>
+
+<div id="buttonDiv">
+<form name="buttons" action="index.html" method="get">
+<button type="submit" name="CommandButton" value="stop" id="stopButton">stop</button>
+<button type="submit" name="CommandButton" value="record" id="recordButton" >record</button>
+<button type="submit" name="CommandButton" value="replay"  id="replayButton" >replay</button>
+<button type="submit" name="CommandButton" value="quit" id="quitButton">quit</button>
+</form>
+</div>
+
+<br>
+<div id="updateRateDiv">
+</div>
+<div id="scriptDebugDiv">
+</div>
+
+<script>
+<!-- #bodyScripts -->
+</script>
+
+</body>
+</html>

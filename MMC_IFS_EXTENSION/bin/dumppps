@@ -1,0 +1,65 @@
+#!/usr/bin/lua 
+----------------------
+-- PPS Dumper
+-- Sam Lauzon - 2013, Harman Intl.
+----------------------
+-- A fantastic way to not have to copy vehcfg out to /tmp! 
+--
+----------------------
+
+local pps      = require "pps"                   -- Need this... 
+local filename = "/pps/"                         -- The user doesn't need "/pps/" every time.
+
+ -- No parameters? Instruct the user. 
+if arg[1] == nul then
+   print("\n dumppps - A PPS Viewer Utility ")
+   print(" ------------------------------------------")
+   print(" Usage: dumppps <pps location> [attribute] ")
+   print(" ------------------------------------------")
+   print("  e.g.  dumppps /can/vehcfg                ")
+   print("        dumppps /pps/can/vehcfg            ") 
+   print("        dumppps can/vehcfg VC_VEH_BRAND    ") 
+   print(" ")
+   return   -- (quit) 
+end
+
+                                                 -- We have somewhere to look if we got this far ... 
+local obj = nil                                  -- our PPS object...
+
+                                                 -- Open the PPS object
+if (arg[1] ~= nil) and (string.find(arg[1],"pps") == nil) then
+   obj = pps.open(filename .. arg[1], "r")
+else
+   obj = pps.open(arg[1], "r") 
+end
+
+local found_attribute = false                    -- Looking for something specfic..? 
+
+if obj then
+   local t = obj:read('*t')                      -- Got a valid object name, Lets read it. 
+   
+   for a,b in pairs(t) do 
+      if arg[2] == nul then                      -- Inspecific attribute? blast out the whole object!
+         print(a .. "::" .. b)
+      else 
+         if a == arg[2] then                     -- Something specific, ...
+            print(a .. "::" .. b)
+            found_attribute = true               -- Print it, and mark as found.. 
+         end
+      end
+   end
+   
+   obj:close()                                   -- Being tidy! 
+else 
+                                                 -- They gave us an invalid object name.. Oops! 
+   print("dumppps: Could not find a pps object going by the name of \"" .. arg[1] .. "\"") 
+   return -- (quit) 
+end
+
+if arg[2] ~= nil and found_attribute == false then
+                                                 -- We got a valid object, but the attribute wasn't there.. 
+   print("dumppps: Could not find an attribute going by the name of \"" .. arg[2] .. "\" in \"" .. arg[1] .. "\"") 
+   return -- (quit)
+end
+
+

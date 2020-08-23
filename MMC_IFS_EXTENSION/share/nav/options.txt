@@ -1,0 +1,5 @@
+mapWidth 800
+mapHeight 480
+mapSwitchLayers 
+sxmWeatherDisable true
+clusterImpl fiat
